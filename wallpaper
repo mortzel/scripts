@@ -1,0 +1,12 @@
+#!/bin/sh
+wallpaperfolder="$HOME/.wallpaper"
+
+if [ $1 == "-c" ]
+  then
+    feh --recursive --randomize --bg-fill $wallpaperfolder
+  else
+    while true; do
+      feh --recursive --randomize --bg-fill $wallpaperfolder
+      sleep 15m
+    done
+fi

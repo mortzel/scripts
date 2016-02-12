@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DEFAULT_LENGTH=18
+
+if [ $# -eq 0 ]
+  then
+    LENGTH=$DEFAULT_LENGTH
+  else
+    LENGTH=$1
+fi
+
+</dev/urandom tr -dc '1234567890!/()=?+#-.:<>{[]}abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' | head -c$LENGTH; echo ""

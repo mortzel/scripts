@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $1 == "-l" ]
+  then
+    :> /tmp/locked
+    i3lock -n -c 000000
+    rm /tmp/locked
+  elif [ $1 == "-as" ]
+    then
+      if [ ! -f /tmp/locked ]
+        then
+	  DISPLAY=:0.0 su mortzel -c "/usr/bin/i3lock -c 000000" && pm-suspend 
+      fi
+  elif [ $1 == "-us" ]
+    then
+      i3lock -c 000000 && sudo pm-suspend 
+fi

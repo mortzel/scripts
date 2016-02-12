@@ -1,0 +1,13 @@
+#!/bin/bash
+
+timestamp="$(date +%Y%m%d%H%M%S)"
+targetbase="$HOME/pictures/screenshots"
+mkdir -p $targetbase
+[ -d $targetbase ] || exit 1
+
+if [ "$1" == "-w" ]; then
+    window=`xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)" | cut -d' ' -f5`;
+    import -window $window $targetbase/$timestamp.png
+  elif [ "$1" == "-h" ]; then
+    import -windows root $targetbase/$timestamp.png
+fi

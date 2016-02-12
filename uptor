@@ -12,7 +12,6 @@ def ctor(path, torrent_path, trackers, name, cat, host, base):
     tracker = str(tracker + " -t " + track)
   ccom = str("transmission-create \"" + path + "\"" + tracker + " -o \"" + torrent_path +"\"")
   rcom = str("transmission-remote " + host + " --add \"" + torrent_path + "\" --download-dir \"" + base + "\"")
-  print(rcom)
   ucom = str("curl -i -F filename=\"" + name + "\" -F category=" + cat + " -F info=... -F anonymous=true -F torrent=@\"" + torrent_path + "\" http://192.168.49.204/upload.php")
   os.system(ccom)
   os.system(rcom)
@@ -47,14 +46,12 @@ for o, a in myopts:
     else:
         print("Usage: %s -u folder -c categorie [-r]" % sys.argv[0])
 
-print(cat)
-
 data = str(subprocess.check_output(["ls", upload_folder]))[:-1]
 folders = data.split('\n')
 
 for folder in folders:
   foopath = str(upload_folder + "/" + folder)
-  
+
   if recu == 1:
     rdata = str(subprocess.check_output(["ls", foopath]))[:-1]
     rfolders = rdata.split('\n')
