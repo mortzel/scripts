@@ -10,6 +10,9 @@ genpass [lentgh]
 ## genmac
 _genmac_ is a basch script to generate a random mac address.  
 
+## goping
+_goping_ is a payhton script to check the time which a ping needs to reach google.com and puts the result to a influxdb to view it in grafana.
+
 ## locking
 _locking_ is a bash script which looks the screen with i3lock and suspends the system if wanted. If you want to suspend, it checks if the screen is already locked and if it is already locked it will not suspend your system.
 
@@ -18,6 +21,9 @@ locking -l | -as | -us
 
 ## screenshot
 The bash script _screenshot_ creates a screenshot from your actual window.
+
+## Speedflux
+_speedflux_ is a python script which uses _speedtest-cli_ to test the internet connection und puts the result to a influxdb to view it in grafana.
 
 ## uptor
 _uptor_ is a Python script to create torrent files for all files and folders in a folder, or for all folder in a folder in a folder ;)
